@@ -30,7 +30,10 @@ ChartJS.register(
 
 const GraphsSection = () => {
     const [dbData, setDbData] = useState([]);
-    const [last5Results, setLast5Results] = useState({});
+    const [lastResultsLPG, setLastResultsLPG] = useState([]);
+    const [lastResultsCO, setLastResultsCO] = useState([]);
+    const [lastResultsSMOKE, setLastResultsSMOKE] = useState([]);
+    const [lastDates, setLastDates] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
 
 
@@ -44,15 +47,23 @@ const GraphsSection = () => {
                 console.log(data.Historico);
                 setDbData(dataArray);
 
-                let last5 = {
-                    dato1: dataArray[dataArray.length - 5],
-                    dato2: dataArray[dataArray.length - 4],
-                    dato3: dataArray[dataArray.length - 3],
-                    dato4: dataArray[dataArray.length - 2],
-                    dato5: dataArray[dataArray.length - 1],
+                let lastLPG = [];
+                let lastCO = [];
+                let lastSMOKE = [];
+                let lastDates = [];
+                dataArray.forEach((data, i) => {
+                    if (i >= dataArray.length - 10) {
+                        lastDates.push(formattedDate(data.date));
+                        lastCO.push(data.co);
+                        lastLPG.push(data.lpg);
+                        lastSMOKE.push(data.smoke);
+                    }
+                })
 
-                }
-                setLast5Results(last5);
+                setLastDates(lastDates);
+                setLastResultsCO(lastCO);
+                setLastResultsLPG(lastLPG);
+                setLastResultsSMOKE(lastSMOKE);
                 setIsLoading(false)
 
             }
@@ -75,23 +86,23 @@ const GraphsSection = () => {
                         },
                     },
                 }} data={{
-                    labels: [formattedDate(last5Results.dato1.date), formattedDate(last5Results.dato2.date), formattedDate(last5Results.dato3.date), formattedDate(last5Results.dato4.date), formattedDate(last5Results.dato5.date)],
+                    labels: lastDates,
                     datasets: [
                         {
                             label: 'Monóxido de carbono',
-                            data: [last5Results.dato1.co, last5Results.dato2.co, last5Results.dato3.co, last5Results.dato4.co, last5Results.dato5.co],
+                            data: lastResultsCO,
                             borderColor: 'rgb(255, 99, 132)',
                             backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         },
                         {
                             label: 'Gas licuado del petróleo',
-                            data: [last5Results.dato1.lpg, last5Results.dato2.lpg, last5Results.dato3.lpg, last5Results.dato4.lpg, last5Results.dato5.lpg],
+                            data: lastResultsLPG,
                             borderColor: 'rgb(53, 162, 235)',
                             backgroundColor: 'rgba(53, 162, 235, 0.5)',
                         },
                         {
                             label: 'Humo',
-                            data: [last5Results.dato1.smoke, last5Results.dato2.smoke, last5Results.dato3.smoke, last5Results.dato4.smoke, last5Results.dato5.smoke],
+                            data: lastResultsSMOKE,
                             borderColor: 'rgb(120, 40, 140)',
                             backgroundColor: 'rgba(120, 40, 140, 0.7)',
                         },
