@@ -1,0 +1,27 @@
+.circles-wrapper{
+    display: flex;
+    overflow-x: auto; 
+    flex-shrink: 1;
+}
+
+.circle{
+    width: 300px;
+    height: 300px;
+}
+
+
+.alarm-btn{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: white;
+    background-color: red;
+
+}
+.alarm-btn-items{
+    font-size: 20px
+}
+.alarm-btn p {
+display: inline-block;
+
+}

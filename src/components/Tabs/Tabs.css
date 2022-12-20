@@ -1,0 +1,28 @@
+.tabsBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    text-decoration: none;
+    background-color: gray;
+    padding: 20px 0 20px 0;
+    font-size: 22px;
+}
+
+.valuesLink:hover{
+   background-color: red;
+}
+
+.tabsBox p{
+    display: inline-block;
+    color: white;
+    padding-left: 8px;
+}
+
+.valuesLink, .graphsLink{
+    color: white;
+    
+}
+
+
+

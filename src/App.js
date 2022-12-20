@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import Dashboard from './components/Dashboard/Dashboard'
+import GraphsSection from './components/GraphsSection/GraphsSection'
+import ValuesSection from './components/ValuesSection/ValuesSection'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+/*     <div className="bg-gradient-to-b from-blue-900 ">
+ */    <div className="bg-gray-200">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Dashboard />} >
+            <Route path="/" element={<ValuesSection />} />
+            <Route path="graficas" element={<GraphsSection />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
+
   );
 }
 
