@@ -53,8 +53,7 @@ const GraphsSection = () => {
 
                 }
                 setLast5Results(last5);
-/*                 console.log(new Date(last5Results.dato1.date));
- */                setIsLoading(false)
+                setIsLoading(false)
 
             }
         });
@@ -93,8 +92,8 @@ const GraphsSection = () => {
                         {
                             label: 'Humo',
                             data: [last5Results.dato1.smoke, last5Results.dato2.smoke, last5Results.dato3.smoke, last5Results.dato4.smoke, last5Results.dato5.smoke],
-                            borderColor: 'rgb(53, 162, 235)',
-                            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                            borderColor: 'rgb(120, 40, 140)',
+                            backgroundColor: 'rgba(120, 40, 140, 0.7)',
                         },
                     ],
                 }} />

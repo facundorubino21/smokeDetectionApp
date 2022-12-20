@@ -1,8 +1,11 @@
 import Loading from 'react-simple-loading';
 
+
 const Loader = () => {
     return (
-        <Loading />
+        <div style={{ height: '80vh' }}>
+            <Loading />
+        </div>
     )
 }
 
