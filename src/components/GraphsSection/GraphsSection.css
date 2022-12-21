@@ -1,4 +1,9 @@
-.container{
+.graphs-container{
+    margin-top: 5vh;
     height: 80vh;
 }
-
+.graphBox{
+    margin-top: 3vh;
+    height: 30vh;
+    margin: 0px 2px 0px 2px;
+}

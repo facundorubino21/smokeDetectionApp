@@ -5,10 +5,10 @@ import './Dashboard.css'
 
 const Dashboard = () => {
     return (
-        <div className="">
+        <>
+            <Tabs />
             <Outlet />
-            <Tabs className="tabs-element" />
-        </div>
+        </>
     )
 }
 
